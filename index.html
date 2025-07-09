@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
+    <script>
+      // Animated counter for stats
+      function animateValue(id, start, end, duration) {
+        const obj = document.getElementById(id);
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          obj.textContent = Math.floor(progress * (end - start) + start);
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          } else {
+            obj.textContent = end;
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+      window.addEventListener('DOMContentLoaded', function() {
+
+        const rdx = document.querySelector('.rdx-title');
+        const ended = document.querySelector('.ended-msg');
+        setTimeout(() => {
+          rdx.classList.add('visible');
+        }, 100);
+        setTimeout(() => {
+          ended.classList.add('visible');
+        }, 900);
+
+        animateValue('stat-users', 0, 146, 1200);
+        animateValue('stat-teams', 0, 59, 1200);
+        animateValue('stat-points', 0, 11970, 1400);
+        animateValue('stat-chals', 0, 28, 1000);
+      });
+    </script>
+  </head>
+  <body>
+    <main class="bg-black text-white">
+      <section class="hero w-full">
+        <div class="rdx-title">RDX CTF</div>
+        <div class="ended-msg">2025 has ended<br>Thank you for playing!<br><span style="color:#a1a1aa;">See you next year.</span></div>
+      </section>
+      <div class="stats-row">
+        <div class="stat-box">
+          <span class="stat-number" id="stat-users">0</span>
+          <span class="stat-label">Users Registered</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number" id="stat-teams">0</span>
+          <span class="stat-label">Teams Registered</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number" id="stat-points">0</span>
+          <span class="stat-label">Total Possible Points</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number" id="stat-chals">0</span>
+          <span class="stat-label">Challenges</span>
+        </div>
+      </div>
+      <div class="img-section">
+        <div class="img-box">
+          <img src="assets/scoreboard.png" alt="Scoreboard">
+          <div class="img-caption">Final Scoreboard</div>
+        </div>
+        <div class="img-box">
+          <img src="assets/graphs.png" alt="Statistics Graphs">
+          <div class="img-caption">Submission & Category Statistics</div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

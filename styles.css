@@ -1,0 +1,114 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #111;
+}
+.hero {
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.rdx-title {
+  font-size: 8rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  background: linear-gradient(90deg, #a8002c 0%, #e11d48 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(.4,2,.6,1);
+}
+.rdx-title.visible {
+  opacity: 1;
+}
+.ended-msg {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(.4,2,.6,1) 0.5s;
+}
+.ended-msg.visible {
+  opacity: 1;
+}
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+.stat-box {
+  background: rgba(40, 40, 48, 0.85);
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
+  padding: 2rem 2.5rem;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #e11d48;
+  margin-bottom: 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  color: #d1d5db;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+.img-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.img-box {
+  background: #18181b;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
+  width: 100%;
+}
+.img-box img {
+  width: 100%;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 16px 0 rgba(99,17,48,0.12);
+  background: #222;
+}
+.img-caption {
+  color: #a1a1aa;
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .stats-row, .img-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .stat-box, .img-box {
+    min-width: 0;
+    width: 100%;
+    max-width: 400px;
+  }
+}
